@@ -9,7 +9,7 @@
   font-weight: 400;
 }
 
-.take-product {
+.main-tittle {
   font-size: 70px;
   line-height: 78px;
   display: flex;
@@ -27,6 +27,7 @@
   padding: 0px 85px 45px 85px;
   position: relative;
   flex-wrap: wrap;
+  list-style: none;
 }
 
 .container-bottom {
@@ -44,7 +45,7 @@
   width: 790px;
   height: 697px;
   left: 85px;
-  background-image: url('src/assets/images/flower.png');
+  background-image: url('src/assets/images/bg-flower.png');
   z-index: -1;
   top: -0px;
 }
@@ -79,7 +80,7 @@
   margin-top: 15px;
 }
 
-.product-compound{
+.product-compound {
   margin-top: 5px;
   list-style: circle;
   margin-bottom: 25px;
