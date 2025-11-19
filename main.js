@@ -15,7 +15,7 @@ const editAllCardsColor = document.querySelector("#edit-all-cards-color");
 const redColorHash = '#ff0000'
 
 editAllCardsColor.addEventListener ('click', () => {
-  productCards.forEach((card) =>card.style.backgroundColor = redColorHash)
+  productCards.forEach((card) => card.style.backgroundColor = redColorHash)
 })
 
 // Открываем Google
@@ -27,7 +27,7 @@ openGoogleButton.addEventListener("click", openGoogle)
 function openGoogle() {
   const answer = confirm('Вы действительно хотите открыть Google?');
 
-  if(answer === true) {
+  if (answer === true) {
     window.open("https://google.com/");
   } else {
     return;
@@ -46,10 +46,10 @@ function outputConsoleLog(message) {
 
 // Слушатель события mouseover
 
-const contentTitle = document.querySelector(".main-title");
+const title = document.querySelector(".main-title");
 
-contentTitle.addEventListener('mouseover', (event) => {
-  console.log('target', event.target);
+title.addEventListener('mouseover', (event) => {
+  console.log('content', event.target);
 })
 
 // Меняем цвет кнопки
@@ -57,5 +57,5 @@ contentTitle.addEventListener('mouseover', (event) => {
 const colorToggleButton = document.querySelector("#color-toggle-button");
 
 colorToggleButton.addEventListener("click", () => {
-  colorToggleButton.classList.toggle('activate-color');
+  colorToggleButton.classList.toggle('bg-color');
 })
