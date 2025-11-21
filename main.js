@@ -57,5 +57,5 @@ title.addEventListener('mouseover', (event) => {
 const colorToggleButton = document.querySelector("#color-toggle-button");
 
 colorToggleButton.addEventListener("click", () => {
-  colorToggleButton.classList.toggle('bg-color');
+  colorToggleButton.classList.toggle('bg-color-purple');
 })
