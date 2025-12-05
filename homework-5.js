@@ -1,16 +1,16 @@
 // Задание 3.Создаю функцию и применяю интерполяцию
 
-function takeInfo(city, temperature) {
+function showWeather(city, temperature) {
   console.log(`Сейчас в ${city} температура ${temperature} градусов по Цельсию`);
 }
 
-takeInfo('Москве', -10)
+showWeather('Москве', -10)
 
 // Задание 4. Создаем функцию, проводим проверку
 
 const SOUND_SPEED = 1225
 
-function showSpeed() {
+function compareSpeeds() {
   if (speed > SOUND_SPEED) {
     console.log('Сверхзвуковая скорость')
   } else if (speed === SOUND_SPEED) {
@@ -20,8 +20,8 @@ function showSpeed() {
   }
 }
 
-showSpeed(1220);
-showSpeed(1300);
+compareSpeeds(1220);
+compareSpeeds(1300);
 // Задание 5. Создаем переменные, с помощью функции выводим сумму
 
 const product = 'Телевизор Samsung';
