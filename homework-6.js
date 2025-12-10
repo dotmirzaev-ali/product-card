@@ -39,9 +39,9 @@ checkMaxSpeed(auto);
 
 // Хадание №6, пишем функцию, которая выводит объект и свойство объекта
 
-function getObjValue(auto, value) {
-  if (value in auto) {
-    console.log(auto[value]);
+function getObjValue(object, key) {
+  if (key in object) {
+    console.log(object[key]);
   }
 }
 
