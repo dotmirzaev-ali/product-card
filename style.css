@@ -18,14 +18,13 @@
   padding: 220px 217px 110px 217px;
 }
 
-.container-top {
+#product-list {
   background: none;
   display: flex;
   justify-content: center;
   gap: 45px;
   position: relative;
   padding: 0px 85px 45px 85px;
-  position: relative;
   flex-wrap: wrap;
   list-style: none;
 }

@@ -51,7 +51,7 @@ function compareAbilities(speed) {
 
 compareAbilities(44);
 
-const time = 10:34;
+const time = "10:34";
 const yourCountry = "Тюмень"
 let auto = "Porshe"
 
