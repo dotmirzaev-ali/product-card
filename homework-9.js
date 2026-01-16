@@ -17,8 +17,8 @@ emailForm.addEventListener("submit", (event) => {
 
 // №5. Кнопка регистрации
 
-const openModalBtn = document.getElementById("openModal");
-const closeModalBtn = document.getElementById("closeModal");
+const openModalBtn = document.getElementById("open-modal");
+const closeModalBtn = document.getElementById("close-modal");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 
