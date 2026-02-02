@@ -1,61 +1,40 @@
-// Покраска первой карточки
 
-const firstProductCard = document.querySelector(".card-container");
-const editFirstCardColor = document.querySelector("#edit-first-card-color");
-const greenColorHash = '#006400'
+import "./homework-6.js"
+import "./homework-7.js"
+import "./homework-8.js";
+import "./homework-9.js";
 
-editFirstCardColor.addEventListener ('click', () => {
-  firstProductCard.style.backgroundColor = greenColorHash;
-})
 
-// Покраска всех карточек
+class Book {
+  constructor(title, description) {
+    this.title = title;
+    this.description = description;
+  }
 
-const productCards = document.querySelectorAll(".card-container");
-const editAllCardsColor = document.querySelector("#edit-all-cards-color");
-const redColorHash = '#ff0000'
-
-editAllCardsColor.addEventListener ('click', () => {
-  productCards.forEach((card) => card.style.backgroundColor = redColorHash)
-})
-
-// Открываем Google
-
-const openGoogleButton = document.querySelector("#open-google");
-
-openGoogleButton.addEventListener("click", openGoogle)
-
-function openGoogle() {
-  const answer = confirm('Вы действительно хотите открыть Google?');
-
-  if (answer === true) {
-    window.open("https://google.com/");
-  } else {
-    return;
+  read () {
+    console.log(`${this.title}, ${this.description} readed`)
   }
 }
 
-// Вывод консоль лог
-const outputLogButton = document.querySelector("#output-console-log");
+class ElectronicBook extends Book {
+  constructor(title, description, download) {
+    super(title, description);
+    this.download = download;
+  }
 
-outputLogButton.addEventListener("click", () => outputConsoleLog ('ДЗ №5'));
+  load() {
+    console.log(`${this.title}, ${this.description} is loaded`);
+  }
 
-function outputConsoleLog(message) {
-  alert(message);
-  console.log(message)
+  read() {
+    super.read();
+    console.log(`download volume ${this.download}`);
+  }
 }
 
-// Слушатель события mouseover
+const newBook = new Book('Game of Thrones', '3k pages')
+newBook.read();
 
-const title = document.querySelector(".main-title");
-
-title.addEventListener('mouseover', (event) => {
-  console.log('content', event.target);
-})
-
-// Меняем цвет кнопки
-
-const colorToggleButton = document.querySelector("#color-toggle-button");
-
-colorToggleButton.addEventListener("click", () => {
-  colorToggleButton.classList.toggle('bg-color-purple');
-})
+const oldBook = new ElectronicBook('Game of Thrones', '3k pages', '500mb')
+oldBook.load();
+oldBook.read();
