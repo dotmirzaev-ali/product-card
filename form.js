@@ -1,3 +1,4 @@
+
 export class Form {
   constructor(formId) {
     this.form = document.getElementById(formId);
@@ -23,7 +24,7 @@ export class Form {
   onSubmit(callback) {
     this.form.addEventListener("submit", (event) => {
       event.preventDefault();
-      callback(event)
+      callback(event);
     });
   }
 }
