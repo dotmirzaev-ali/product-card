@@ -1,5 +1,5 @@
-
 export class Modal {
+
   constructor(modalId) {
     this.modal = document.getElementById(modalId);
     this.overlay = document.getElementById("overlay");
@@ -11,7 +11,7 @@ export class Modal {
 
     this.overlay.addEventListener("click", () => {
       this.close();
-    })
+    });
   }
 
   open() {
@@ -27,4 +27,5 @@ export class Modal {
   isOpen() {
     return this.modal.classList.contains("modal-showed");
   }
+
 }

@@ -1,5 +1,5 @@
-
 export class Form {
+
   constructor(formId) {
     this.form = document.getElementById(formId);
   }
@@ -27,4 +27,5 @@ export class Form {
       callback(event);
     });
   }
+
 }
