@@ -1,66 +1,52 @@
+import { Modal } from "./modal.js"
+import { Form } from "./form.js"
+
 let user;
 
-const emailForm = document.getElementById("email-form");
+const emailForm = new Form("email-form");
 
-emailForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!emailForm.checkValidity()) {
-    emailForm.reportValidity();
+emailForm.onSubmit(() => {
+  if (!emailForm.isValid()) {
+    emailForm.showValidity();
     return;
   }
-  const formData = new FormData(emailForm);
-  const data = Object.fromEntries(formData.entries());
+
+  const data = emailForm.getValues();
   console.log({ email: data.email });
 
   emailForm.reset();
-});
+})
 
-// №5. Кнопка регистрации
+const modal = new Modal("modal");
 
 const openModalBtn = document.getElementById("open-modal");
-const closeModalBtn = document.getElementById("close-modal");
-const modal = document.getElementById("modal");
-const overlay = document.getElementById("overlay");
+openModalBtn.addEventListener("click", () => {
+  modal.open();
+})
 
-function openModal() {
-  modal.classList.add("modal-showed");
-  overlay.classList.add("modal-showed");
-}
+const registrationForm = new Form("registration-form");
 
-function closeModal() {
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("modal-showed");
-}
-
-openModalBtn.addEventListener("click", openModal);
-closeModalBtn.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-// №6. Форма регистрации
-
-const registrationForm = document.getElementById("registration-form");
-registrationForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!registrationForm.checkValidity()) {
-    registrationForm.reportValidity();
+registrationForm.onSubmit(() => {
+  if (!registrationForm.isValid()) {
+    registrationForm.showValidity();
     alert("Регистрация отклонена: заполните форму корректно.");
     return;
   }
 
-  const formData = new FormData(registrationForm);
-  const formValue = Object.fromEntries(formData.entries());
+  const formValues = registrationForm.getValues();
+
   if (formValue.password !== formValue.confirmPassword) {
     alert("Регистрация отклонена: пароли не совпадают.");
     return;
   }
 
   user = {
-    ...formValue,
+    ...formValues,
     createdOn: new Date(),
   };
 
   console.log(user);
 
   registrationForm.reset();
-  closeModal();
+  modal.close();
 });
