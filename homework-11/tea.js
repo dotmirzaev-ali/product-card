@@ -9,7 +9,7 @@ export class Tea extends Drink {
   }
 
   getRecipe() {
-    return console.log(`Найти чай ${this.structure} и добавить в чайник ${this.amount} пакетиков`);
+    console.log(`Найти чай ${this.structure} и добавить в чайник ${this.amount} пакетиков`);
   }
 
 }

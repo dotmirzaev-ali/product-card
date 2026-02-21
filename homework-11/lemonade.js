@@ -1,6 +1,6 @@
 import { Drink } from "./Drink.js";
 
-export class Limonade extends Drink {
+export class Lemonade extends Drink {
 
   constructor(name, size, price, temperature, waterType) {
     super(name, size, price, temperature);
@@ -8,7 +8,7 @@ export class Limonade extends Drink {
   }
 
   getRecipe() {
-    return console.log(`Добавить ${this.waterType} в лимонный сироп. Хорошенько перемешать.`);
+    console.log(`Добавить ${this.waterType} в лимонный сироп. Хорошенько перемешать.`);
   }
 
 }

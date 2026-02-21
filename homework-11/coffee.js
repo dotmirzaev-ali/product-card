@@ -10,7 +10,7 @@ export class Coffee extends Drink {
   }
 
   getRecipe() {
-    return console.log(`Смешать эспрессо - ${this.espressoAmount}, вспененное молоко - ${this.milkAmount}, воду - ${this.waterAmount}`);
+    console.log(`Смешать эспрессо - ${this.espressoAmount}, вспененное молоко - ${this.milkAmount}, воду - ${this.waterAmount}`);
   }
 
 }

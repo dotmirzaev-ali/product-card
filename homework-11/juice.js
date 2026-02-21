@@ -8,7 +8,7 @@ export class Juice extends Drink {
   }
 
   getRecipe() {
-    return console.log(`Выжать ${this.fruitType} - 3шт. в стакан, добавить лед.`);
+    console.log(`Выжать ${this.fruitType} - 3шт. в стакан, добавить лед.`);
   }
 
 }
