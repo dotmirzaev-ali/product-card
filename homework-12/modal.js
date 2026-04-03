@@ -4,7 +4,7 @@ export class Modal {
     this.modal = document.getElementById(modalId);
     this.overlay = document.getElementById('overlay');
     this.#initOpen();
-    this.#initClose()
+    this.#initClose();
     this.shouldCloseOnOverlay = shouldCloseOnOverlay;
     this.openButton = document.getElementById(buttonId);
     this.closeButton = document.getElementById("#modal-close-button");

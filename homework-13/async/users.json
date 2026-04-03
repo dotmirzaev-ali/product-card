@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ali",
+      "surname": "Dotmirzaev",
+      "email": "dotmirz@gmail.com",
+      "age": 32,
+      "location": "Kulmbach",
+      "img": "ali_ali"
+    },
+    {
+      "id": 2,
+      "name": "Vlad",
+      "surname": "Babenko",
+      "email": "babenko@gmail.com",
+      "age": 20,
+      "location": "Odessa",
+      "img": "vlad_vlad"
+    },
+    {
+      "id": 3,
+      "name": "Mans",
+      "surname": "Timlidov",
+      "email": "timlid@gmail.com",
+      "age": 25,
+      "location": "Grozny",
+      "img": "mans_valarg"
+    },
+    {
+      "id": 4,
+      "name": "Ilnur",
+      "surname": "Razypov",
+      "email": "angular@gmail.com",
+      "age": 28,
+      "location": "Makka",
+      "img": "ilnur_ilnur"
+    },
+    {
+      "id": 5,
+      "name": "Farukh",
+      "surname": "Safarov",
+      "email": "safarov@gmail.com",
+      "age": 30,
+      "location": "Tyumen",
+      "img": "far_far"
+    }
+  ]
+}
