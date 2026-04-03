@@ -4,30 +4,37 @@ const loadingText = document.getElementById("loading-text");
 
 let users = [];
 
-const savedUsers = localStorage.getItem('users');
+function loadUsers() {
+  const savedUsers = localStorage.getItem("users");
 
-if (savedUsers === null) {
-  void fetchData();
-} else {
-  users = JSON.parse(savedUsers);
-  loadingText.innerText = '';
-  renderUsers(users);
+  if (savedUsers === null) {
+    void fetchData();
+  } else {
+    users = JSON.parse(savedUsers);
+    loadingText.innerText = '';
+    renderUsers(users);
+  }
 }
+
+loadUsers();
 
 async function fetchData() {
   try {
     await new Promise((resolve) => {
       setTimeout(resolve, 3000);
     });
-    const response = await fetch('./users.json');
+
+    const response = await fetch("./users.json");
 
     if (!response.ok) {
       throw new Error("Не удалось загрузить данные пользователей");
     }
+
     const data = await response.json();
     users = data.users;
-    localStorage.setItem('users', JSON.stringify(users));
-    loadingText.innerText = '';
+
+    localStorage.setItem("users", JSON.stringify(users));
+    loadingText.innerText = "";
     renderUsers(users);
   } catch (error) {
     console.log(error);
@@ -37,57 +44,70 @@ async function fetchData() {
 
 function renderUsers(usersToRender) {
   userList.innerHTML = "";
+
   usersToRender.forEach((user) => {
     const userClone = userTemplate.content.cloneNode(true);
-    userClone.querySelector(".user-photo").src = `photos/${user.img}.jpg`;
+
+    userClone.querySelector(".user-photo").src = `./photos/${user.img}.jpg`;
     userClone.querySelector(".user-id").textContent = `ID: ${user.id}`;
     userClone.querySelector(".user-name").textContent = user.name;
     userClone.querySelector(".user-surname").textContent = user.surname;
     userClone.querySelector(".user-age").textContent = `Возраст: ${user.age}`;
     userClone.querySelector(".user-email").textContent = `Почта: ${user.email}`;
     userClone.querySelector(".user-location").textContent = `Место рождения: ${user.location}`;
-    userClone.querySelector(".delete-button").onclick = () => deleteUser(user.id);
+
+    const deleteButton = userClone.querySelector(".delete-button");
+    deleteButton.id = `delete-user-card-button-${user.id}`;
+    deleteButton.onclick = () => deleteUser(user.id);
+
     userList.appendChild(userClone);
   });
+
+  initRemoveUserButton();
 }
 
-const deleteUserButton = document.querySelector('.delete-user-button');
-deleteUserButton.addEventListener('click', () => {
-  const idToDelete = Number(document.getElementById('delete-id-input').value);
+function initRemoveUserButton() {
+  const deleteUserButton = document.getElementById("remove-user-button");
 
-  if (idToDelete) {
-    alert("Введите корректный id пользователя");
-    return;
+  deleteUserButton.onclick = () => {
+    const idToDelete = Number(document.getElementById("user-id-input").value);
+
+    if (!idToDelete) {
+      alert("Введите корректный id пользователя");
+      return;
+    }
+
+    deleteUser(idToDelete);
   }
-
-  deleteUser(idToDelete);
-})
+}
 
 function deleteUser(id) {
-  const updateUsers = users.filter((user) => user.id !== id);
+  const updatedUsers = users.filter((user) => user.id !== id);
 
-  if (updateUsers.length === users.length) {
+  if (updatedUsers.length === users.length) {
     alert("Пользователь с таким id не найден");
     return;
   }
 
-  users = updateUsers;
-  localStorage.setItem('users', JSON.stringify(users));
+  users = updatedUsers;
+  localStorage.setItem("users", JSON.stringify(users));
   renderUsers(users);
 }
 
-const deleteAllButton = document.querySelector('.delete-all-button');
+const deleteAllButton = document.getElementById('.clear-all-button');
 deleteAllButton.addEventListener('click', deleteAll);
+
 function deleteAll() {
-  users =[];
-  localStorage.removeItem('users');
+  users = [];
+  localStorage.removeItem("users");
   renderUsers(users);
 }
 
-const addAllButton = document.querySelector('.add-all-button');
+const addAllButton = document.getElementById("restore-all-button");
 addAllButton.addEventListener('click', getAllUsers);
+
 function getAllUsers() {
-  const savedUsers = localStorage.getItem('users');
+  const savedUsers = localStorage.getItem("users");
 
   if (users.length === 0 && savedUsers === null) {
     void fetchData();

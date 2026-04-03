@@ -15,7 +15,7 @@
         <li>
           <div class="user-container">
             <span class="user-id"></span>
-            <img class="user-photo" src="" alt="Фото пользователя">
+            <img class="user-photo" alt="Фото пользователя">
             <span>
               <h3 class="user-name"></h3>
               <h3 class="user-surname"></h3>
@@ -30,13 +30,13 @@
     </ul>
     
     <div class="actions-panel">
-      <button class="delete-all-button button">Удалить все</button>
+      <button id="clear-all-button" class="delete-all-button button">Удалить все</button>
       <input
         type="number"
-        id="delete-id-input"
+        id="user-id-input"
         placeholder="Введи id пользователя"/>
-      <button class="delete-user-button button">Удалить пользователя</button>
-      <button class="add-all-button button">Добавить всех</button>
+      <button id="remove-user-button" class="delete-user-button button">Удалить пользователя</button>
+      <button id="restore-all-button" class="add-all-button button">Добавить всех</button>
     </div>
     
     <script type="module" src="async.js"></script>
