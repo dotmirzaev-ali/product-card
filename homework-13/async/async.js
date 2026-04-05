@@ -7,7 +7,7 @@ let users = [];
 function loadUsers() {
   const savedUsers = localStorage.getItem("users");
 
-  if (savedUsers === null) {
+  if (!savedUsers) {
     void fetchData();
   } else {
     users = JSON.parse(savedUsers);
@@ -62,23 +62,6 @@ function renderUsers(usersToRender) {
 
     userList.appendChild(userClone);
   });
-
-  initRemoveUserButton();
-}
-
-function initRemoveUserButton() {
-  const deleteUserButton = document.getElementById("remove-user-button");
-
-  deleteUserButton.onclick = () => {
-    const idToDelete = Number(document.getElementById("user-id-input").value);
-
-    if (!idToDelete) {
-      alert("Введите корректный id пользователя");
-      return;
-    }
-
-    deleteUser(idToDelete);
-  }
 }
 
 function deleteUser(id) {
@@ -109,15 +92,15 @@ addAllButton.addEventListener('click', getAllUsers);
 function getAllUsers() {
   const savedUsers = localStorage.getItem("users");
 
-  if (users.length === 0 && savedUsers === null) {
+  if (users.length === 0 && !savedUsers) {
     void fetchData();
     return;
   }
 
   if (users.length === 0 && savedUsers !== null) {
     users = JSON.parse(savedUsers);
-     renderUsers(users);
-     return;
+    renderUsers(users);
+    return;
   }
 
   alert("Все пользователи уже отображены");
