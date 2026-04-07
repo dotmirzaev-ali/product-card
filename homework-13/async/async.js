@@ -8,7 +8,7 @@ function loadUsers() {
   const savedUsers = localStorage.getItem("users");
 
   if (!savedUsers) {
-    void fetchData();
+    fetchData();
   } else {
     users = JSON.parse(savedUsers);
     loadingText.innerText = '';
@@ -93,7 +93,7 @@ function getAllUsers() {
   const savedUsers = localStorage.getItem("users");
 
   if (users.length === 0 && !savedUsers) {
-    void fetchData();
+    fetchData();
     return;
   }
 
